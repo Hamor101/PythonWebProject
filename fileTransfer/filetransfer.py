@@ -3,13 +3,11 @@ import socket
 class Transferer:
     addr = ""
     port = 0
-    mode = False    ## False for receive, True for send
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     def __init__(self, args):
         self.addr = args.address
         self.port = args.port
         self.filename = args.filename
-        self.mode = (False if args.receive else True)
     
     def send(self):
         self.sock.connect((self.addr, self.port))
